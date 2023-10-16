@@ -1,0 +1,28 @@
+<div class="container mt-4"> 
+    <h1 class="text-center">Delete Student</h1> 
+     
+    <div class="form-group"> 
+      <select class="form-control" (change)="getSelectedValue($event)"> 
+        <option *ngFor="let studentId of studentData" value="{{studentId.id}}">{{studentId.rollNo}}</option> 
+      </select> 
+    </div> 
+ 
+    <form [formGroup]="deleteStudent" (ngSubmit)="deleteStudentDetails(deleteStudent.value)"> 
+      <div class="form-group"> 
+        <input type="hidden" formControlName="id" [(ngModel)]="student[0].id"> 
+      </div> 
+      <div class="form-group"> 
+        <input type="text" formControlName="name" [(ngModel)]="student[0].name" readonly class="form-control"> 
+      </div> 
+      <div class="form-group"> 
+        <input type="email" formControlName="email" [(ngModel)]="student[0].email" readonly class="form-control"> 
+      </div> 
+      <div class="form-group"> 
+        <input type="number" formControlName="age" [(ngModel)]="student[0].age" readonly class="form-control"> 
+      </div> 
+      <div class="form-group"> 
+        <input type="number" formControlName="rollNo" [(ngModel)]="student[0].rollNo" readonly class="form-control"> 
+      </div> 
+      <button type="submit" >Delete</button> 
+    </form> 
+  </div>

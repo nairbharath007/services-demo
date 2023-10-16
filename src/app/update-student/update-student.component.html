@@ -1,0 +1,17 @@
+<h1>Update Student</h1>
+<select (change)="getSelectedValue($event)">
+    <option *ngFor="let studentId of studentData" value="{{studentId.id}}">
+        {{studentId.rollNo}}
+    </option>
+</select>
+<form [formGroup]="updateStudent" (ngSubmit)="updateStudentData(updateStudent.value)">
+    <input type="hidden" formControlName="id" [(ngModel)]="student[0].id">
+    <input type="text" formControlName="name" [(ngModel)]="student[0].name"><br>
+    <input type="email" formControlName="email" [(ngModel)]="student[0].email"><br>
+    <input type="number" formControlName="age" [(ngModel)]="student[0].age"><br>
+    <input type="radio" formControlName="isMale" value="true" checked>Male &nbsp;<br>
+    <input type="radio" formControlName="isMale" value="false" >Female &nbsp;<br>
+    <input type="number" formControlName="rollNo" [(ngModel)]="student[0].rollNo"><br>
+    <input type="date" formControlName="date" [(ngModel)]="student[0].date"><br>
+    <button type="submit">Update</button>
+</form>
